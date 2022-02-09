@@ -1,0 +1,9 @@
+name: XRayBlacklist
+version: '${project.version}'
+main: team.yogurt.xrayblacklist.XRayBlacklist
+api-version: 1.18
+authors: [ Andrius91 ]
+description: Troll players using xray
+commands:
+  xrb:
+    description: A Command

@@ -1,0 +1,13 @@
+config:
+  troll:
+    item: COAL
+    amount: 1
+  items:
+    - deepslate_coal_ore
+    - deepslate_gold_ore
+    - deepslate_cooper_ore
+    - deepslate_diamond_ore
+    - deepslate_emerald_ore
+    - deepslate_iron_ore
+    - deepslate_lapis_ore
+    - deepslate_redstone_ore
