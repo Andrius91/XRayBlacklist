@@ -6,6 +6,7 @@ import team.yogurt.xrayblacklist.Commands.XRayBlacklistCommand;
 import team.yogurt.xrayblacklist.Managers.ConfigManager;
 import team.yogurt.xrayblacklist.Managers.SaveList;
 import team.yogurt.xrayblacklist.listeners.BlockBreakListener;
+import team.yogurt.xrayblacklist.listeners.JoinAndLeaveListener;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import static team.yogurt.xrayblacklist.Utilities.sendMessage;
 public final class XRayBlacklist extends JavaPlugin {
 
     private static final ArrayList<String> list = new ArrayList<>();
-
+    private static final ArrayList<String> queue_list = new ArrayList<>();
 
     private static XRayBlacklist instance;
     @Override
@@ -51,12 +52,18 @@ public final class XRayBlacklist extends JavaPlugin {
     public static ArrayList<String> getList() {
         return list;
     }
+
+    public static ArrayList<String> getQueue_list() {
+        return queue_list;
+    }
+
     private void registerCommands(){
         getCommand("xrb").setExecutor(new XRayBlacklistCommand("xrb.staff"));
         getCommand("xrb").setTabCompleter(new XRayBlacklistCommand(null));
     }
     private void registerListeners(){
         getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
+        getServer().getPluginManager().registerEvents(new JoinAndLeaveListener(), this);
 
     }
     public static FileConfiguration getConf(){

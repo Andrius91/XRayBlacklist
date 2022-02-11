@@ -5,10 +5,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
-import team.yogurt.xrayblacklist.Commands.Subcommands.add;
-import team.yogurt.xrayblacklist.Commands.Subcommands.list;
-import team.yogurt.xrayblacklist.Commands.Subcommands.reload;
-import team.yogurt.xrayblacklist.Commands.Subcommands.remove;
+import team.yogurt.xrayblacklist.Commands.Subcommands.*;
 import team.yogurt.xrayblacklist.Managers.CommandManager;
 
 import java.util.*;
@@ -24,6 +21,7 @@ public class XRayBlacklistCommand implements TabExecutor {
             commands.add(new list());
             commands.add(new remove());
             commands.add(new reload());
+            commands.add(new clearDiamonds());
             this.permission = permission;
 
         }
@@ -52,7 +50,7 @@ public class XRayBlacklistCommand implements TabExecutor {
         ArrayList<String> tabs = new ArrayList<>();
 
         if(sender.hasPermission("xrb.staff")){
-            String[] subcommands = {"add", "remove", "list", "reload"};
+            String[] subcommands = {"add", "remove", "list", "reload", "cleardiamonds"};
             if(args.length == 1){
                 tabs.addAll(Arrays.asList(subcommands));
             }else{

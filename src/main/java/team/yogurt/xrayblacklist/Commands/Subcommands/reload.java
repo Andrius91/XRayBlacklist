@@ -25,8 +25,10 @@ public class reload extends CommandManager {
     @Override
     public void perform(CommandSender sender, String[] args) {
         if(args.length == 1){
-            ConfigManager.reloadConfig("config.yml");
-            sender.sendMessage(color("&bConfiguración recargada."));
+            if(sender.hasPermission("xrb.admin")){
+                ConfigManager.reloadConfig("config.yml");
+                sender.sendMessage(color("&bConfiguración recargada."));
+            }
         }
     }
 }

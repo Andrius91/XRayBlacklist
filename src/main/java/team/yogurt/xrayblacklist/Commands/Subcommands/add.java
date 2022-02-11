@@ -1,8 +1,6 @@
 package team.yogurt.xrayblacklist.Commands.Subcommands;
 
-import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import team.yogurt.xrayblacklist.Managers.CommandManager;
 import team.yogurt.xrayblacklist.XRayBlacklist;
 
