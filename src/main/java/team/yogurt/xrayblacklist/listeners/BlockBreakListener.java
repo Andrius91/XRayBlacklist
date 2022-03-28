@@ -14,6 +14,7 @@ import team.yogurt.xrayblacklist.XRayBlacklist;
 import static team.yogurt.xrayblacklist.XRayBlacklist.getConf;
 
 public class BlockBreakListener implements Listener {
+
     @EventHandler
     public void onBlockBreak(BlockBreakEvent e) {
         Player player = e.getPlayer();

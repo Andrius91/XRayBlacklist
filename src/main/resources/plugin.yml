@@ -4,6 +4,9 @@ main: team.yogurt.xrayblacklist.XRayBlacklist
 api-version: 1.18
 authors: [ Andrius91 ]
 description: Troll players using xray
+soft-depend: [OreAnnouncer, UltimateClans]
 commands:
   xrb:
     description: A Command
+  acs:
+    description: A commandx2
