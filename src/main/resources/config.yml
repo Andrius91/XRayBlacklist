@@ -1,4 +1,6 @@
 config:
+  token: "TOKEN"
+  channel_id: "CHANNEL_ID"
   troll:
     item: COAL
     amount: 1
@@ -11,3 +13,6 @@ config:
     - deepslate_iron_ore
     - deepslate_lapis_ore
     - deepslate_redstone_ore
+    - DIAMOND_ORE
+    - ancient_debris
+    - ANCIENTDEBRIS

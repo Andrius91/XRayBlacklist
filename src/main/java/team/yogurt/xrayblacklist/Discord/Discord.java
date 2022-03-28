@@ -5,6 +5,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.entities.TextChannel;
 import team.yogurt.xrayblacklist.Managers.DiscordManager;
+import team.yogurt.xrayblacklist.XRayBlacklist;
 
 import javax.security.auth.login.LoginException;
 import java.awt.*;
@@ -15,7 +16,7 @@ public class Discord extends DiscordManager {
 
     @Override
     public TextChannel getChannel() {
-        return getJDA().getTextChannelById("947166866093252699");
+        return getJDA().getTextChannelById(XRayBlacklist.getConf().getString("config.channel_id"));
     }
 
     @Override
@@ -25,7 +26,7 @@ public class Discord extends DiscordManager {
 
     @Override
     public String getToken() {
-        return "OTQyMDU4NzA0MTM0NjA2ODc4.Yge-iQ.URR78giuEonOBWwuExKpORVdm5U";
+        return XRayBlacklist.getConf().getString("config.token");
     }
 
     @Override
