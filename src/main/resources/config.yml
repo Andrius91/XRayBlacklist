@@ -1,3 +1,4 @@
+min-player: 1
 config:
   token: "TOKEN"
   channel_id: "CHANNEL_ID"
@@ -16,3 +17,5 @@ config:
     - DIAMOND_ORE
     - ancient_debris
     - ANCIENTDEBRIS
+locations:
+

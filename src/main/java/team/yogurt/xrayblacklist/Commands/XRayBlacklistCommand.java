@@ -22,6 +22,9 @@ public class XRayBlacklistCommand implements TabExecutor {
             commands.add(new remove());
             commands.add(new reload());
             commands.add(new clearDiamonds());
+            commands.add(new blacklist());
+            commands.add(new start());
+            commands.add(new kick());
             this.permission = permission;
 
         }

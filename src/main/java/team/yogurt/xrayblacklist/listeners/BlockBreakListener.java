@@ -40,7 +40,6 @@ public class BlockBreakListener implements Listener {
         if(XRayBlacklist.getList().contains(player.getName()) && e.getBlock().getType() == Material.TNT){
             e.setCancelled(true);
         }
-
     }
 
 }
