@@ -11,10 +11,7 @@ import team.yogurt.xrayblacklist.Commands.acs;
 import team.yogurt.xrayblacklist.Discord.Discord;
 import team.yogurt.xrayblacklist.Managers.ConfigManager;
 import team.yogurt.xrayblacklist.Managers.SaveList;
-import team.yogurt.xrayblacklist.listeners.BlockBreakListener;
-import team.yogurt.xrayblacklist.listeners.BlockPlacedEvent;
-import team.yogurt.xrayblacklist.listeners.JoinAndLeaveListener;
-import team.yogurt.xrayblacklist.listeners.MovementListener;
+import team.yogurt.xrayblacklist.listeners.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -66,24 +63,10 @@ public final class XRayBlacklist extends JavaPlugin {
                 oreAnnouncerAPI = OreAnnouncer.getApi();
             }
         }
-        Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new Runnable() {
-            @Override
-            public void run() {
-                if(Bukkit.getOnlinePlayers().size() < getConf().getInt("min-players")){
-                    if(!isShootRandomDisabled){
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mp stop");
-                        System.out.println("Desactivado");
-                        isShootRandomDisabled=true;
-                    }
-                }else{
-                    if(isShootRandomDisabled){
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "mp start");
-                        System.out.println("Activado");
-                        isShootRandomDisabled =false;
-                    }
-                }
-            }
-        }, 60L, 20L);
+
+        StaffListener task = new StaffListener();
+        task.runTaskTimer(this, 0L, 1200L);
+
 
     }
 
@@ -93,6 +76,9 @@ public final class XRayBlacklist extends JavaPlugin {
         SaveList.saveList();
         sendMessage("&dLista guardada.");
         // Plugin shutdown logic
+        if(discord.getJDA() != null){
+            discord.getJDA().shutdownNow();
+        }
     }
     public static XRayBlacklist getInstance() {
         return instance;
@@ -125,7 +111,7 @@ public final class XRayBlacklist extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new BlockBreakListener(), this);
         getServer().getPluginManager().registerEvents(new JoinAndLeaveListener(), this);
         getServer().getPluginManager().registerEvents(new MovementListener(), this);
-        getServer().getPluginManager().registerEvents(new BlockPlacedEvent(), this);
+        getServer().getPluginManager().registerEvents(new PlayerPortalListener(), this);
 
     }
     public static FileConfiguration getConf(){

@@ -1,17 +1,13 @@
 package team.yogurt.xrayblacklist.Commands.Subcommands;
 
 import org.bukkit.*;
-import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import team.yogurt.xrayblacklist.Managers.CommandManager;
-import team.yogurt.xrayblacklist.Managers.SillasManager;
 import team.yogurt.xrayblacklist.Utilities;
-import team.yogurt.xrayblacklist.XRayBlacklist;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class kick extends CommandManager {
     @Override

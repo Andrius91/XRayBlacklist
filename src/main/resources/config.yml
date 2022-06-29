@@ -2,6 +2,7 @@ min-player: 1
 config:
   token: "TOKEN"
   channel_id: "CHANNEL_ID"
+  entradas_id: "STAFF_CHANNEL_ID"
   troll:
     item: COAL
     amount: 1
